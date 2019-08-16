@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mapet</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cholodymedia.github.io/debug/debug.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="keywords" content="mapet,mapettv,infraction,xbluemapetx" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <div class="nav-left">
+          <div class="logo">
+            <img src="./media/logo2.png" alt="logo" />
+          </div>
+          <div class="title">MapeT</div>
+        </div>
+        <div class="nav-right">
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://www.twitch.tv/mapettv" target="blank"><i class="fab fa-twitch"></i></a>
+          </div>
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://www.youtube.com/user/Bluemapet" target="blank"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://www.facebook.com/groups/CiasteczkaMapeta/" target="blank"><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://www.instagram.com/mariuszsitnik/" target="blank"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://twitter.com/sitnikmariusz" target="blank"><i class="fab fa-twitter"></i></a>
+          </div>
+          <div class="social">
+            <!-- prettier-ignore -->
+            <a href="https://www.snapchat.com/add/mapecior" target="blank"><i class="fab fa-snapchat-ghost"></i></a>
+          </div>
+        </div>
+      </nav>
+      <main>
+        <div class="main-left">
+          <div class="box-wrapper">
+            <div class="menu">
+              <div class="menu-item">O mnie</div>
+              <div class="menu-item">Osiągnięcia</div>
+            </div>
+            <div class="box"></div>
+          </div>
+        </div>
+        <div class="main-right">
+          <div class="box-wrapper">
+            <div class="menu">
+              <div class="twitch-item">
+                <div class="twitch-logo">
+                  <img src="./media/twitch.png" alt="twitch" />
+                </div>
+                <div class="twitch-live">
+                  <i class="fas fa-circle" id="stream-dot" class="live"></i>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img
+                  src="./media/youtube.png"
+                  alt="twitch"
+                  class="stream-logo"
+                />
+              </div>
+            </div>
+            <div class="box-stream" id="box-stream">
+              <!-- <div class="stream-box">
+                <div id="player"></div>
+              </div>
+              <div class="title-box"></div> -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="http://player.twitch.tv/js/embed/v1.js"></script>
+  </body>
+</html>

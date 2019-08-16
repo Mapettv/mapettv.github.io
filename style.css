@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.45s ease;
+  -moz-transition: all 0.45s ease;
+  -o-transition: all 0.45s ease;
+  transition: all 0.45s ease;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,500&display=swap");
+
+body {
+  background: linear-gradient(222deg, #529ff9, #284c75);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 20s ease infinite;
+  -moz-animation: AnimationName 20s ease infinite;
+  animation: AnimationName 20s ease infinite;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+nav {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+}
+
+.nav-left {
+  width: 20vw;
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 55%;
+  border-radius: 30px;
+}
+
+.title {
+  display: flex;
+  flex: 2;
+  height: 100%;
+  justify-content: left;
+  align-items: center;
+  font-family: Comfortaa;
+  color: white;
+  font-weight: 200;
+  font-size: 1.5vw;
+  padding-left: 2%;
+}
+
+.nav-right {
+  width: 30vw;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  margin-right: 2%;
+}
+
+.social {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social i {
+  color: white;
+  font-size: 2vw;
+}
+
+.social i:hover {
+  cursor: pointer;
+  color: rgb(238, 238, 107);
+}
+
+main {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+}
+
+.main-left {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-right {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-wrapper {
+  width: 70%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  flex: 1;
+  background-color: rgba(76, 74, 88, 0.884);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  cursor: pointer;
+  font-size: 1.4vw;
+}
+
+.twitch-item {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+}
+
+.twitch-logo {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.twitch-logo img {
+  width: 45%;
+  padding-left: 25%;
+}
+
+.twitch-live {
+  flex: 1;
+}
+
+.twitch-live i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.menu-item:nth-child(2) {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.stream-logo {
+  width: 35%;
+}
+
+.live {
+  padding-left: 10%;
+}
+
+.stream-off {
+  color: rgb(255, 115, 115);
+}
+
+.stream-on {
+  color: rgb(115, 255, 127);
+}
+
+.twitch {
+  display: flex;
+  flex-direction: row;
+  align-items: unset;
+  justify-content: unset;
+}
+
+.box {
+  flex: 7;
+  background-color: rgba(76, 74, 88, 0.884);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.box-stream {
+  flex: 7;
+  background-color: rgba(76, 74, 88, 0.884);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stream-box {
+  flex: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-box {
+  flex: 1;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.stream-title {
+  flex: 4;
+  display: flex;
+  flex-direction: row;
+  height: 30%;
+}
+
+.title-icon {
+  flex: 1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.title-text {
+  flex: 7;
+  color: white;
+  font-family: "Sigmar One", cursive;
+  justify-content: center;
+}
+
+.stream-views {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  height: 30%;
+}
+
+.views-icon {
+  flex: 2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.views-number {
+  flex: 3;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+  font-family: "Sigmar One", cursive;
+}
+
+#player {
+  width: 28vw;
+  height: calc(28vw * 1080 / 1920);
+  border: solid 3px #529ff9;
+}
