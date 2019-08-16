@@ -10,11 +10,11 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,500&display=swap");
 
 body {
-  background: linear-gradient(222deg, #529ff9, #284c75);
+  background: linear-gradient(222deg, #529ff9, #1d3e63);
   background-size: 400% 400%;
-  -webkit-animation: AnimationName 20s ease infinite;
-  -moz-animation: AnimationName 20s ease infinite;
-  animation: AnimationName 20s ease infinite;
+  -webkit-animation: AnimationName 10s ease infinite;
+  -moz-animation: AnimationName 10s ease infinite;
+  animation: AnimationName 10s ease infinite;
 }
 
 .wrapper {
@@ -97,7 +97,7 @@ nav {
 }
 
 .nav-right {
-  width: 30vw;
+  width: 35vw;
   margin-left: auto;
   display: flex;
   flex-direction: row;
@@ -204,7 +204,7 @@ main {
   font-size: 1.3vw;
 }
 
-.menu-item:nth-child(2) {
+.no-active {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -300,9 +300,10 @@ main {
   flex: 7;
   color: white;
   font-family: "Sigmar One", cursive;
-  justify-content: center;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding-top: 0.5%;
+  font-size: 1.1vw;
 }
 
 .stream-views {
@@ -353,4 +354,27 @@ main {
   width: 28vw;
   height: calc(28vw * 1080 / 1920);
   border: solid 3px #529ff9;
+}
+
+#ytplayer {
+  width: 28vw;
+  height: calc(28vw * 1080 / 1920);
+}
+
+.video-box {
+  height: 38vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.video-title {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2vw;
+  font-family: "Sigmar One", cursive;
+  width: 80%;
+  height: 10vh;
 }

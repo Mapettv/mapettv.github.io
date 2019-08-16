@@ -1,4 +1,5 @@
 let json_data;
+let yt_data;
 
 // let userID = "25452510";
 let userID = "106512746";
@@ -21,13 +22,26 @@ function CheckOnlineStatus() {
         dot.classList.remove("stream-off");
         dot.classList.add("stream-on");
       }
-      streamBox.twitch();
+      streamBox.twitch_click();
     }
   });
 }
 CheckOnlineStatus();
 
+function YoutubeLastVideo() {
+  $.ajax({
+    url:
+      "https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCHmzjmhFzJvfK8cmDf0naTg&key=AIzaSyDJvQpPNgESE3L-MsBCFjBc8i8zbhRSFOo",
+    dataType: "json",
+    success: function(data) {
+      yt_data = data;
+    }
+  });
+}
+YoutubeLastVideo();
+
 const streamBox = {
+  status: "",
   twitch: () => {
     root = document.getElementById("box-stream");
     let stream_box = document.createElement("div");
@@ -104,5 +118,49 @@ const streamBox = {
       };
     }
     var player = new Twitch.Player("player", options);
+  },
+  youtube: () => {
+    root = document.getElementById("box-stream");
+    let video_box = document.createElement("div");
+    video_box.classList.add("video-box");
+    let yt_player = document.createElement("div");
+    yt_player.id = "ytplayer";
+    yt_player.innerHTML =
+      '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/bs6S6MrhlMA?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    video_box.appendChild(yt_player);
+    root.appendChild(video_box);
+    let video_title = document.createElement("div");
+    video_title.classList.add("video-title");
+    if (yt_data != undefined) {
+      video_title.innerHTML = yt_data.items[0].snippet.title;
+    } else {
+      video_title.innerHTML = "Error";
+    }
+    root.appendChild(video_title);
+  },
+  twitch_click: () => {
+    if (streamBox.status != "twitch") {
+      root = document.getElementById("box-stream");
+      root.innerHTML = "";
+      streamBox.twitch();
+      streamBox.status = "twitch";
+      document.getElementById("menu-twitch").classList.remove("no-active");
+      document.getElementById("menu-yt").classList.add("no-active");
+    }
+  },
+  yt_click: () => {
+    if (streamBox.status != "yt") {
+      root = document.getElementById("box-stream");
+      root.innerHTML = "";
+      streamBox.youtube();
+      streamBox.status = "yt";
+      document.getElementById("menu-twitch").classList.add("no-active");
+      document.getElementById("menu-yt").classList.remove("no-active");
+    }
   }
 };
+
+let twitch_button = document.getElementById("menu-twitch");
+twitch_button.addEventListener("click", streamBox.twitch_click);
+let yt_button = document.getElementById("menu-yt");
+yt_button.addEventListener("click", streamBox.yt_click);
