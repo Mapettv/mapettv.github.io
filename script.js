@@ -307,7 +307,6 @@ function refresh() {
         //prettier-ignore
         document.getElementsByClassName('game-name')[0].innerHTML = "Offline";
       }
-      console.log("refresh");
       setTimeout(refresh, 5000);
     }
   });
