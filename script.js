@@ -164,3 +164,105 @@ let twitch_button = document.getElementById("menu-twitch");
 twitch_button.addEventListener("click", streamBox.twitch_click);
 let yt_button = document.getElementById("menu-yt");
 yt_button.addEventListener("click", streamBox.yt_click);
+
+let socialButtons = {
+  status: "hidden",
+  working: false,
+  show: () => {
+    socialButtons.working = true;
+    socialButtons.status = "showed";
+    trigger = document.getElementsByClassName("trigger-dot")[0];
+    trigger.innerHTML = '<i class="fas fa-times"></i>';
+    dots = document.getElementsByClassName("social-dot");
+    dots[1].style.display = "flex";
+    setTimeout(() => {
+      dots[2].style.display = "flex";
+    }, 100);
+    setTimeout(() => {
+      dots[3].style.display = "flex";
+    }, 200);
+    setTimeout(() => {
+      dots[4].style.display = "flex";
+    }, 300);
+    setTimeout(() => {
+      dots[5].style.display = "flex";
+    }, 400);
+    setTimeout(() => {
+      dots[6].style.display = "flex";
+    }, 500);
+    setTimeout(() => {
+      dots[7].style.display = "flex";
+      socialButtons.working = false;
+    }, 600);
+  },
+  hide: () => {
+    socialButtons.working = true;
+    socialButtons.status = "hidden";
+    dots = document.getElementsByClassName("social-dot");
+    dots[7].classList.add("fade-out");
+    setTimeout(() => {
+      dots[7].style.display = "none";
+      dots[7].classList.remove("fade-out");
+    }, 200);
+    setTimeout(() => {
+      dots[6].classList.add("fade-out");
+      setTimeout(() => {
+        dots[6].style.display = "none";
+        dots[6].classList.remove("fade-out");
+      }, 200);
+    }, 100);
+    setTimeout(() => {
+      dots[5].classList.add("fade-out");
+      setTimeout(() => {
+        dots[5].style.display = "none";
+        dots[5].classList.remove("fade-out");
+      }, 200);
+    }, 200);
+    setTimeout(() => {
+      dots[4].classList.add("fade-out");
+      setTimeout(() => {
+        dots[4].style.display = "none";
+        dots[4].classList.remove("fade-out");
+      }, 200);
+    }, 300);
+    setTimeout(() => {
+      dots[3].classList.add("fade-out");
+      setTimeout(() => {
+        dots[3].style.display = "none";
+        dots[3].classList.remove("fade-out");
+      }, 200);
+    }, 400);
+    setTimeout(() => {
+      dots[2].classList.add("fade-out");
+      setTimeout(() => {
+        dots[2].style.display = "none";
+        dots[2].classList.remove("fade-out");
+      }, 200);
+    }, 500);
+    setTimeout(() => {
+      dots[1].classList.add("fade-out");
+      setTimeout(() => {
+        dots[1].style.display = "none";
+        dots[1].classList.remove("fade-out");
+      }, 200);
+    }, 600);
+    setTimeout(() => {
+      trigger = document.getElementsByClassName("trigger-dot")[0];
+      trigger.innerHTML = '<i class="fas fa-link"></i>';
+      socialButtons.working = false;
+    }, 800);
+  },
+  change: () => {
+    if (socialButtons.status == "showed") {
+      if (!socialButtons.working) {
+        socialButtons.hide();
+      }
+    } else {
+      if (!socialButtons.working) {
+        socialButtons.show();
+      }
+    }
+  }
+};
+//prettier-ignore
+document.getElementsByClassName('trigger-dot')[0].addEventListener('click',socialButtons.change);
