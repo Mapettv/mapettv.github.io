@@ -19,7 +19,8 @@ body {
 
 .wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -377,4 +378,264 @@ main {
   font-family: "Sigmar One", cursive;
   width: 80%;
   height: 10vh;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 800px) {
+  nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+  }
+
+  .nav-left {
+    width: 100%;
+    display: flex;
+  }
+
+  .logo {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 55%;
+    border-radius: 30px;
+  }
+
+  .title {
+    display: flex;
+    flex: 3;
+    height: 100%;
+    justify-content: left;
+    align-items: center;
+    font-family: Comfortaa;
+    color: white;
+    font-weight: 200;
+    font-size: 6vw;
+    padding-left: 2%;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .main-left {
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+  }
+
+  .main-right {
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+  }
+
+  .box-wrapper {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu {
+    flex: 1;
+    background-color: rgba(76, 74, 88, 0.884);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .menu-item {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: Montserrat;
+    cursor: pointer;
+    font-size: 5vw;
+  }
+
+  .twitch-item {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .twitch-logo {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .twitch-logo img {
+    width: 70%;
+    padding-left: 15%;
+  }
+
+  .twitch-live {
+    flex: 1;
+  }
+
+  .twitch-live i {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+  }
+
+  .stream-logo {
+    width: 55%;
+  }
+
+  #player {
+    width: 80vw;
+    height: calc(80vw * 1080 / 1920);
+    border: solid 3px #529ff9;
+  }
+
+  #ytplayer {
+    width: 80vw;
+    height: calc(80vw * 1080 / 1920);
+  }
+
+  .title-box {
+    flex: 1.5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-box-top {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .title-box-bottom {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .space {
+    flex: 0;
+  }
+
+  .stream-title {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .title-icon {
+    flex: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+  }
+
+  .title-text {
+    flex: 4;
+    color: white;
+    font-family: "Sigmar One", cursive;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 4vw;
+  }
+
+  .stream-views {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .views-icon {
+    flex: 2;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+  }
+
+  .views-number {
+    flex: 3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+    font-family: "Sigmar One", cursive;
+  }
+
+  .game-icon {
+    flex: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+  }
+
+  .game-name {
+    flex: 4;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 4vw;
+    font-family: "Sigmar One", cursive;
+  }
+
+  .video-box {
+    flex: 2.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .video-title {
+    color: white;
+    display: flex;
+    flex: 1.5;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 5vw;
+    font-family: "Sigmar One", cursive;
+    width: 90%;
+    height: 10vh;
+    padding-top: 3vh;
+  }
 }
