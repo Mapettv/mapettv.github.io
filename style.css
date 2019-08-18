@@ -168,7 +168,7 @@ main {
   color: white;
   justify-content: center;
   align-items: center;
-  font-family: Montserrat;
+  font-family: Livvic;
   cursor: pointer;
   font-size: 1.4vw;
 }
@@ -237,6 +237,10 @@ main {
   background-color: rgba(76, 74, 88, 0.884);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .box-stream {
@@ -384,6 +388,38 @@ main {
   display: none;
 }
 
+.photo {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo img {
+  width: 11vw;
+  border-radius: 30vw;
+}
+
+.omnie {
+  flex: 1;
+  width: 80%;
+  text-align: justify;
+  font-family: Livvic;
+  color: white;
+  font-size: 1.25vw;
+  line-height: 4vh;
+}
+
+.succes {
+  width: 80%;
+  text-align: justify;
+  font-family: Livvic;
+  color: white;
+  font-size: 1.2vw;
+  line-height: 4vh;
+}
+
 /* Mobile */
 
 @media only screen and (max-width: 800px) {
@@ -442,8 +478,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8vh;
-    margin-bottom: 8vh;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
   }
 
   .main-right {
@@ -451,7 +487,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8vh;
+    margin-top: 6vh;
   }
 
   .box-wrapper {
@@ -666,6 +702,38 @@ main {
   .social-dot i {
     font-size: 30px;
     color: white;
+  }
+
+  .photo {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo img {
+    width: 30vw;
+    border-radius: 30vw;
+  }
+
+  .omnie {
+    flex: 1.5;
+    width: 85%;
+    text-align: justify;
+    font-family: Livvic;
+    color: white;
+    font-size: 5vw;
+    line-height: 4vh;
+  }
+
+  .succes {
+    width: 85%;
+    text-align: justify;
+    font-family: Livvic;
+    color: white;
+    font-size: 4.2vw;
+    line-height: 3vh;
   }
 }
 

@@ -1,7 +1,6 @@
 let json_data;
 let yt_data;
 
-// let userID = "25452510";
 let userID = "106512746";
 
 function CheckOnlineStatus() {
@@ -266,3 +265,116 @@ let socialButtons = {
 };
 //prettier-ignore
 document.getElementsByClassName('trigger-dot')[0].addEventListener('click',socialButtons.change);
+
+function refresh() {
+  $.ajax({
+    url: "https://api.twitch.tv/kraken/streams/" + userID,
+    dataType: "json",
+    headers: {
+      Accept: "application/vnd.twitchtv.v5+json",
+      "Client-ID": "0gr6nzyigbsyfqkkbqtqd9p3turioo"
+    },
+    success: function(data) {
+      json_data = data;
+      let dot = document.getElementById("stream-dot");
+      if (data["stream"] == null) {
+        dot.classList.remove("stream-on");
+        dot.classList.add("stream-off");
+      } else {
+        dot.classList.remove("stream-off");
+        dot.classList.add("stream-on");
+      }
+      if (data.stream != null) {
+        //prettier-ignore
+        document.getElementsByClassName('title-text')[0].innerHTML = data.stream.channel.status;
+      } else {
+        //prettier-ignore
+        document.getElementsByClassName('title-text')[0].innerHTML = "Stream Offline";
+      }
+
+      if (data.stream != null) {
+        //prettier-ignore
+        document.getElementsByClassName('views-number')[0].innerHTML = data.stream.viewers;
+      } else {
+        //prettier-ignore
+        document.getElementsByClassName('views-number')[0].innerHTML = "0";
+      }
+
+      if (data.stream != null) {
+        //prettier-ignore
+        document.getElementsByClassName('game-name')[0].innerHTML = data.stream.game;
+      } else {
+        //prettier-ignore
+        document.getElementsByClassName('game-name')[0].innerHTML = "Offline";
+      }
+      console.log("refresh");
+      setTimeout(refresh, 5000);
+    }
+  });
+}
+
+setTimeout(refresh, 5000);
+
+let textBox = {
+  status: "omnie",
+  omnie: () => {
+    let root = document.getElementsByClassName("box")[0];
+    let photo = document.createElement("div");
+    photo.classList.add("photo");
+    photo.innerHTML = '<img src="./media/photo.png" alt="profile" />';
+    root.appendChild(photo);
+    let text = document.createElement("div");
+    text.classList.add("omnie");
+    text.innerHTML = `Cześć jest Mariusz Sitnik, w internecie znany również jako
+    MapeT. Od 10 roku życia gram w siatkówkę, a od niedawna także
+    prowadzę kontent z grami na Twitch'u i YouTube. Głównie gram w
+    Counter Strike'a, ale zdarzają się również inne gry.`;
+    root.appendChild(text);
+  },
+  succes: () => {
+    let root = document.getElementsByClassName("box")[0];
+    let text = document.createElement("div");
+    text.classList.add("succes");
+    text.innerHTML = `W wieku 9 lat zacząłem grać w gry, a od 10 roku życia w cs'a. W
+    wieku 14 lat zacząłem grę na "poważnie" i znalazłem swoją
+    pierwszą organizacje: FirePlay, z którą zdobyłem pierwsze
+    miejsce w turnieju online "GoldinCup". Niestety po paru
+    tygodniach od zwycięstwa drużyna się rozpadła. Zacząłem szukać
+    kolejnej drużyny i szybko znalazłem półprofesjonalną
+    organizacje. Infraction gwarantowało mi darmowy serwer do
+    ćwiczeń, TeamSpeak i płacenie składek na turnieje online jak i
+    offline. Razem z tą organizacją spędziłem 2 lata. Zdobywając
+    parę nagród m.in. 1 miejsce w Asus Rog challenge, 3 miejsce w
+    Omen tournament.`;
+    root.appendChild(text);
+  },
+  omnie_click: () => {
+    if (textBox.status == "succes") {
+      document.getElementsByClassName("succes")[0].remove();
+      //prettier-ignore
+      document.getElementsByClassName('menu-item')[0].classList.remove('no-active');
+      //prettier-ignore
+      document.getElementsByClassName("menu-item")[1].classList.add("no-active");
+      textBox.omnie();
+      textBox.status = "omnie";
+    }
+  },
+  succes_click: () => {
+    if (textBox.status == "omnie") {
+      document.getElementsByClassName("photo")[0].remove();
+      document.getElementsByClassName("omnie")[0].remove();
+      //prettier-ignore
+      document.getElementsByClassName('menu-item')[1].classList.remove('no-active');
+      //prettier-ignore
+      document.getElementsByClassName("menu-item")[0].classList.add("no-active");
+      textBox.succes();
+      textBox.status = "succes";
+    }
+  }
+};
+
+textBox.omnie();
+//prettier-ignore
+document.getElementsByClassName('menu-item')[0].addEventListener('click',textBox.omnie_click);
+//prettier-ignore
+document.getElementsByClassName('menu-item')[1].addEventListener('click',textBox.succes_click);
