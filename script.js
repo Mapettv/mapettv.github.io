@@ -324,7 +324,7 @@ let textBox = {
     root.appendChild(photo);
     let text = document.createElement("div");
     text.classList.add("omnie");
-    text.innerHTML = `Cześć jest Mariusz Sitnik, w internecie znany również jako
+    text.innerHTML = `Cześć jestem Mariusz Sitnik, w internecie znany również jako
     MapeT. Od 10 roku życia gram w siatkówkę, a od niedawna także
     prowadzę kontent z grami na Twitch'u i YouTube. Głównie gram w
     Counter Strike'a, ale zdarzają się również inne gry.`;
