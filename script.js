@@ -30,7 +30,7 @@ CheckOnlineStatus();
 function YoutubeLastVideo() {
   $.ajax({
     url:
-      "https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCHmzjmhFzJvfK8cmDf0naTg&key=AIzaSyDJvQpPNgESE3L-MsBCFjBc8i8zbhRSFOo",
+      "https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCHmzjmhFzJvfK8cmDf0naTg&key=AIzaSyDc88VL5HLgG0LqpLWadN7Vo5Ix4z6XxZc",
     dataType: "json",
     success: function(data) {
       yt_data = data;
