@@ -11,7 +11,7 @@ function CheckOnlineStatus() {
       Accept: "application/vnd.twitchtv.v5+json",
       "Client-ID": "0gr6nzyigbsyfqkkbqtqd9p3turioo"
     },
-    success: function(data) {
+    success: function (data) {
       json_data = data;
       let dot = document.getElementById("stream-dot");
       if (data["stream"] == null) {
@@ -30,9 +30,9 @@ CheckOnlineStatus();
 function YoutubeLastVideo() {
   $.ajax({
     url:
-      "https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCHmzjmhFzJvfK8cmDf0naTg&key=AIzaSyDc88VL5HLgG0LqpLWadN7Vo5Ix4z6XxZc",
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHmzjmhFzJvfK8cmDf0naTg&maxResults=1&order=date&type=video&key=AIzaSyDc88VL5HLgG0LqpLWadN7Vo5Ix4z6XxZc",
     dataType: "json",
-    success: function(data) {
+    success: function (data) {
       yt_data = data;
     }
   });
@@ -124,8 +124,11 @@ const streamBox = {
     video_box.classList.add("video-box");
     let yt_player = document.createElement("div");
     yt_player.id = "ytplayer";
-    yt_player.innerHTML =
-      '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/bs6S6MrhlMA?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    if (yt_data != undefined) {
+      yt_player.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + yt_data.items[0].id.videoId + '?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    } else {
+      yt_player.innerHTML = "Loading Error";
+    }
     video_box.appendChild(yt_player);
     root.appendChild(video_box);
     let video_title = document.createElement("div");
@@ -264,7 +267,7 @@ let socialButtons = {
   }
 };
 //prettier-ignore
-document.getElementsByClassName('trigger-dot')[0].addEventListener('click',socialButtons.change);
+document.getElementsByClassName('trigger-dot')[0].addEventListener('click', socialButtons.change);
 
 function refresh() {
   $.ajax({
@@ -274,7 +277,7 @@ function refresh() {
       Accept: "application/vnd.twitchtv.v5+json",
       "Client-ID": "0gr6nzyigbsyfqkkbqtqd9p3turioo"
     },
-    success: function(data) {
+    success: function (data) {
       json_data = data;
       let dot = document.getElementById("stream-dot");
       if (data["stream"] == null) {
@@ -374,6 +377,6 @@ let textBox = {
 
 textBox.omnie();
 //prettier-ignore
-document.getElementsByClassName('menu-item')[0].addEventListener('click',textBox.omnie_click);
+document.getElementsByClassName('menu-item')[0].addEventListener('click', textBox.omnie_click);
 //prettier-ignore
-document.getElementsByClassName('menu-item')[1].addEventListener('click',textBox.succes_click);
+document.getElementsByClassName('menu-item')[1].addEventListener('click', textBox.succes_click);
