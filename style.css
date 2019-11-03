@@ -373,6 +373,24 @@ main {
   align-items: flex-end;
 }
 
+.video-describ {
+  display: flex;
+  width: 80%;
+  height: 13vh;
+}
+
+.left-describ {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.right-describ {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
 .video-title {
   color: white;
   display: flex;
@@ -380,8 +398,46 @@ main {
   align-items: center;
   font-size: 1.2vw;
   font-family: "Sigmar One", cursive;
-  width: 80%;
-  height: 10vh;
+  flex: 1;
+}
+
+.video-views {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2vw;
+  font-family: "Sigmar One", cursive;
+  flex: 1;
+}
+
+.video-views span {
+  padding-left: 8%;
+}
+
+.video-reaction {
+  width: 70%;
+  height: 60%;
+  color: white;
+  display: flex;
+  font-size: 1.2vw;
+  font-family: "Sigmar One", cursive;
+}
+
+.like {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #00FF00;
+}
+
+.dislike {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #DC143C;
 }
 
 .social-dot {
@@ -660,23 +716,78 @@ main {
   }
 
   .video-box {
-    flex: 2.5;
+    height: 32vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;
   }
-
+  
+  .video-describ {
+    display: flex;
+    width: 89%;
+    height: 15vh;
+  }
+  
+  .left-describ {
+    display: flex;
+    flex: 1.5;
+    flex-direction: column;
+  }
+  
+  .right-describ {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+  }
+  
   .video-title {
     color: white;
     display: flex;
-    flex: 1.5;
     justify-content: flex-start;
-    align-items: flex-start;
-    font-size: 5vw;
+    align-items: flex-end;
+    font-size: 1rem;
     font-family: "Sigmar One", cursive;
-    width: 90%;
-    height: 10vh;
-    padding-top: 3vh;
+    flex: 1;
+  }
+  
+  .video-views {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-family: "Sigmar One", cursive;
+    flex: 1;
+  }
+  
+  .video-views span {
+    padding-left: 8%;
+  }
+  
+  .video-reaction {
+    flex: 1;
+    padding-top: 1.5vh;
+    color: white;
+    display: flex;
+    font-size: 1rem;
+    font-family: "Sigmar One", cursive;
+  }
+  
+  .like {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #00FF00;
+  }
+  
+  .dislike {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #DC143C;
   }
 
   .trigger-dot {

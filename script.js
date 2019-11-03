@@ -1,5 +1,6 @@
 let json_data;
 let yt_data;
+let video_data;
 
 let userID = "106512746";
 
@@ -34,10 +35,22 @@ function YoutubeLastVideo() {
     dataType: "json",
     success: function (data) {
       yt_data = data;
+      videoData(data.items[0].id.videoId);
     }
   });
 }
 YoutubeLastVideo();
+
+function videoData(videoID) {
+  $.ajax({
+    url:
+      "https://www.googleapis.com/youtube/v3/videos?part=statistics&id=" + videoID + "&key=AIzaSyDc88VL5HLgG0LqpLWadN7Vo5Ix4z6XxZc",
+    dataType: "json",
+    success: function (data) {
+      video_data = data;
+    }
+  });
+}
 
 const streamBox = {
   status: "",
@@ -131,6 +144,13 @@ const streamBox = {
     }
     video_box.appendChild(yt_player);
     root.appendChild(video_box);
+
+    let video_describ = document.createElement("div");
+    video_describ.classList.add("video-describ");
+
+    let left_describ = document.createElement("div");
+    left_describ.classList.add("left-describ");
+
     let video_title = document.createElement("div");
     video_title.classList.add("video-title");
     if (yt_data != undefined) {
@@ -138,7 +158,44 @@ const streamBox = {
     } else {
       video_title.innerHTML = "Error";
     }
-    root.appendChild(video_title);
+    left_describ.appendChild(video_title);
+
+    let video_views = document.createElement("div");
+    video_views.classList.add("video-views");
+    if (video_data != undefined) {
+      video_views.innerHTML = '<i class="fas fa-eye"></i><span>' + video_data.items[0].statistics.viewCount + '</span>';
+    } else {
+      video_views.innerHTML = '<i class="fas fa-eye"></i><span>#</span>';
+    }
+    left_describ.appendChild(video_views);
+
+    video_describ.appendChild(left_describ);
+
+    let right_describ = document.createElement("div");
+    right_describ.classList.add("right-describ");
+
+    let video_reaction = document.createElement("div");
+    video_reaction.classList.add("video-reaction");
+    let like = document.createElement('div');
+    like.classList.add('like');
+    if (video_data != undefined) {
+      like.innerHTML = '<i class="fas fa-thumbs-up"></i><span>' + video_data.items[0].statistics.likeCount + '</span>';
+    } else {
+      like.innerHTML = '<i class="fas fa-thumbs-up"></i><span>#</span>';
+    }
+    video_reaction.appendChild(like);
+    let dislike = document.createElement('div');
+    dislike.classList.add('dislike');
+    if (video_data != undefined) {
+      dislike.innerHTML = '<i class="fas fa-thumbs-down"></i><span>' + video_data.items[0].statistics.dislikeCount + '</span>';
+    } else {
+      dislike.innerHTML = '<i class="fas fa-thumbs-down"></i><span>#</span>';
+    }
+    video_reaction.appendChild(dislike);
+    right_describ.appendChild(video_reaction);
+    video_describ.appendChild(right_describ);
+
+    root.appendChild(video_describ);
   },
   twitch_click: () => {
     if (streamBox.status != "twitch") {
@@ -287,28 +344,30 @@ function refresh() {
         dot.classList.remove("stream-off");
         dot.classList.add("stream-on");
       }
-      if (data.stream != null) {
-        //prettier-ignore
-        document.getElementsByClassName('title-text')[0].innerHTML = data.stream.channel.status;
-      } else {
-        //prettier-ignore
-        document.getElementsByClassName('title-text')[0].innerHTML = "Stream Offline";
-      }
+      if (streamBox.status == "twitch") {
+        if (data.stream != null) {
+          //prettier-ignore
+          document.getElementsByClassName('title-text')[0].innerHTML = data.stream.channel.status;
+        } else {
+          //prettier-ignore
+          document.getElementsByClassName('title-text')[0].innerHTML = "Stream Offline";
+        }
 
-      if (data.stream != null) {
-        //prettier-ignore
-        document.getElementsByClassName('views-number')[0].innerHTML = data.stream.viewers;
-      } else {
-        //prettier-ignore
-        document.getElementsByClassName('views-number')[0].innerHTML = "0";
-      }
+        if (data.stream != null) {
+          //prettier-ignore
+          document.getElementsByClassName('views-number')[0].innerHTML = data.stream.viewers;
+        } else {
+          //prettier-ignore
+          document.getElementsByClassName('views-number')[0].innerHTML = "0";
+        }
 
-      if (data.stream != null) {
-        //prettier-ignore
-        document.getElementsByClassName('game-name')[0].innerHTML = data.stream.game;
-      } else {
-        //prettier-ignore
-        document.getElementsByClassName('game-name')[0].innerHTML = "Offline";
+        if (data.stream != null) {
+          //prettier-ignore
+          document.getElementsByClassName('game-name')[0].innerHTML = data.stream.game;
+        } else {
+          //prettier-ignore
+          document.getElementsByClassName('game-name')[0].innerHTML = "Offline";
+        }
       }
       setTimeout(refresh, 5000);
     }
