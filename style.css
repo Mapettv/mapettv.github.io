@@ -12,9 +12,9 @@
 body {
   background: linear-gradient(222deg, #529ff9, #132942);
   background-size: 400% 400%;
-  -webkit-animation: AnimationName 10s ease infinite;
-  -moz-animation: AnimationName 10s ease infinite;
-  animation: AnimationName 10s ease infinite;
+  -webkit-animation: AnimationName 5s ease infinite;
+  -moz-animation: AnimationName 5s ease infinite;
+  animation: AnimationName 5s ease infinite;
 }
 
 .wrapper {
